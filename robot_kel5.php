@@ -44,7 +44,7 @@
                 }
             }
         }
-        
+
         // Menyalakan robot
          if(isset($_POST['nyala'])){
             ambil_menu();
@@ -61,6 +61,44 @@
             echo "<input type='submit' name='hari' value='AMBIL TANGGAL'>";
             echo " <input type='submit' name='ulang' value='PENGULANGAN'>";
         }
+        
+        // fungsi untuk menampilkan peringatan
+        function peringatan($pesan){
+            echo "<script type='text/javascript'>alert('$pesan');</script>";
+        }
+
+        // convert hari ke indonesia
+        $hari = array( 1 =>    'Senin',
+			'Selasa',
+			'Rabu',
+			'Kamis',
+			'Jumat',
+			'Sabtu',
+			'Minggu'
+		);
+
+        // perwujudan dari robot
+        $robot5 = new robot();
+        if(isset($_POST['hari'])){
+                ambil_menu();
+                echo "<br>"."<br>";
+                echo "Sekarang hari ".$hari[$robot5->ambil_hari()]." ".$robot5->ambil_tanggal();
+        }elseif(isset($_POST['ulang'])){
+                ambil_menu();
+                echo "<br>"."<br>";
+                echo "<input type='text' name='ulang_angka' placeholder ='masukkan pengulangan'"."<br>";
+                echo " <input type='submit' name='cetak_ulang' value='CETAK'>"."<br>"."<br>";
+        }elseif(isset($_POST['ulang_angka'],$_POST['cetak_ulang']) && $_POST['ulang_angka']!='' ){
+                ambil_menu();
+                echo "<br>"."<br>";
+                $robot5->ulang((int)$_POST['ulang_angka']);
+        }   
+
         ?>
     </form>
+    
+
 </div>
+
+</body>
+</html>
