@@ -44,6 +44,23 @@
                 }
             }
         }
+        
+        // Menyalakan robot
+         if(isset($_POST['nyala'])){
+            ambil_menu();
+        }
+        // Mematikan robot dengan me refresh halaman
+        if(isset($_POST['mati'])){
+            peringatan("robot 5 telah dimatikan");
+        }
+
+        // fungsi mengambil menu
+        function ambil_menu(){
+            echo "<input type='submit' name='mati' value='MATIKAN ROBOT'>"."<br>"."<br>";
+            echo "'Robot kel 5 telah dinyalakan, ada yang bisa dibantu?'"."<br>"."<br>";
+            echo "<input type='submit' name='hari' value='AMBIL TANGGAL'>";
+            echo " <input type='submit' name='ulang' value='PENGULANGAN'>";
+        }
         ?>
     </form>
 </div>
