@@ -27,5 +27,23 @@
     <br>
     <form method="POST">
         <input type="submit" name="nyala" value="NYALAKAN ROBOT">
+        <?php
+
+        // class dari robot 
+        class robot{
+            public function ambil_tanggal(){
+                return date("d F Y");
+            }
+            public function ambil_hari(){
+                return date('N');
+            }
+
+            public function ulang(int $angka){
+                for($i=1;$i<=$angka;$i++){
+                    echo "Halo Aku Robot kel 5 Pengulangan ke- ".$i."<br>";
+                }
+            }
+        }
+        ?>
     </form>
 </div>
